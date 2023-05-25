@@ -1,0 +1,29 @@
+<div id="searchdiv">
+  <i id="searchicon" class="bi bi-search"></i>
+  <input matInput id="inputBar" type="text" placeholder="Enter title" [(ngModel)]="searchedTitle" />
+  <a type="submit" class="material-icons" matTooltip="Search" matTooltipPosition="above"
+    (click)="searchinput()"><mat-icon>search</mat-icon></a>
+  <button mat-icon-button class="material-icons" matTooltip="Priority" matTooltipPosition="above"
+    [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [disabled]="selected === 'high'" (click)="selected = 'high'; searchinput1()">
+      🔴High
+    </button>
+    <button mat-menu-item [disabled]="selected === 'medium'" (click)="selected = 'medium'; searchinput1()">
+      🟡Medium
+    </button>
+    <button mat-menu-item [disabled]="selected === 'low'" (click)="selected = 'low'; searchinput1()">
+      🟢Low
+    </button>
+    <button mat-menu-item [disabled]="selected2 == true" (click)="selected2 = true; searchinput2()">
+      Completed
+    </button>
+    <button mat-menu-item [disabled]="selected2 == false" (click)="selected2 = false; searchinput2()">
+      Incomeplete
+    </button>
+  </mat-menu>
+  <a type="submit" class="material-icons" matTooltip="Reset" matTooltipPosition="above"
+    (click)="cleardata()"><mat-icon>autorenew</mat-icon></a>
+</div>

@@ -1,0 +1,54 @@
+.example-card {
+  max-width: 385px;
+  margin: 10px;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 0px;
+}
+div {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.material-icons {
+  cursor: pointer;
+  padding-left: 15px;
+}
+.material-icons:hover {
+  border-radius: 1px;
+}
+.due-task .head{
+  border: 5px solid yellow;
+}
+.previous-task .head{
+  border: 5px solid red;
+}
+h1 {
+  color: black;
+  font-weight: 400;
+}
+.date {
+  padding-left: 20px;
+}
+.text {
+  font-family: "Roboto Slab", serif;
+}
+.text1 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+hr {
+  margin-top: 5px;
+}
+.desc
+{
+  font-family: "Concert One", cursive;
+}
+.but{
+padding-left:5%;
+margin-bottom: -20px;
+}
+.head{
+  background-color: #fff;
+}

@@ -1,0 +1,60 @@
+<div style="margin-top: 8%">
+  <div *ngIf="showMessage">
+    <h1>You have No Archived Task</h1>
+  </div>
+  <mat-card
+    class="example-card"
+    *ngFor="let card of allArchievedTask.reverse()"
+  >
+    <mat-card-header class="head">
+      <mat-card-title> {{ card.title }}</mat-card-title>
+      <mat-card-subtitle class="text text1">
+        Created On:- {{ card.createdDateTime }} | Priority :-
+        {{ card.priority }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="fullForm">
+        <mat-expansion-panel-header>
+          <mat-panel-title> View more... </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr />
+        <mat-card-content class="desc">
+          {{ card.description }}
+        </mat-card-content>
+        <mat-card-content>
+          <div *ngIf="card.imgUrl != ''">
+            <img
+              id="img"
+              [src]="card.imgUrl"
+              height="200px"
+              style="width: 300px"
+            />
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="but">
+            <div>
+              <span
+                class="material-icons"
+                matTooltip="UnArchive"
+                matTooltipPosition="above"
+                (click)="unArchiveTask(card)"
+                >unarchive</span
+              >
+            </div>
+            <div>
+              <span
+                class="material-icons"
+                matTooltip="Delete"
+                matTooltipPosition="above"
+                (click)="deleteTaskById(card.taskId)"
+                >delete</span
+              >
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>

@@ -1,0 +1,40 @@
+<div style="margin-top: 8%">
+  <div *ngIf="showMessage">
+    <h1>You have No Task in Notification</h1>
+  </div>
+
+  <mat-card class="example-card" *ngFor="let notification of notifications">
+    <mat-card-header class="head">
+      <mat-card-title> {{ notification.title }}</mat-card-title>
+      <mat-card-subtitle class="text text1">
+        Created On:- {{ notification.createdDateTime }} | Priority :-
+        {{ notification.priority }}</mat-card-subtitle
+      >
+      <mat-card-subtitle class="text text1">
+        Last Updated On:- {{ notification.updatedTask }}</mat-card-subtitle
+      >
+    </mat-card-header>
+
+    <!-- <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="fullForm">
+        <mat-expansion-panel-header>
+          <mat-panel-title> View more... </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr />
+        <mat-card-content class="desc">
+          {{ notification.description }}
+        </mat-card-content>
+        <mat-card-content>
+          <div *ngIf="notification.imgUrl != ''">
+            <img
+              id="img"
+              [src]="notification.imgUrl"
+              height="200px"
+              style="width: 300px"
+            />
+          </div>
+        </mat-card-content>
+      </mat-expansion-panel>
+    </mat-accordion> -->
+  </mat-card>
+</div>

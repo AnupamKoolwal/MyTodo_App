@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === true"
+  >
+    <div *ngIf="service.isLoggedinUser" class="value">
+      <mat-toolbar class="mdc-list-item__primary-text">Menu</mat-toolbar>
+      <mat-nav-list class="clr">
+        <a mat-list-item routerLink="header" class="mdc-list-item__primary-text"
+          ><span class="mdc-list-item__primary-text">🏠 Home</span>
+        </a>
+        <a mat-list-item routerLink="incompletedtask">
+          <span class="mdc-list-item__primary-text">⌛ Ongoing Task</span></a
+        >
+        <a mat-list-item routerLink="completedtask"
+          ><span class="mdc-list-item__primary-text">✅ Completed Task</span></a
+        >
+        <a mat-list-item routerLink="archievedtask"
+          ><span class="mdc-list-item__primary-text">📥 Archieved Task</span></a
+        >
+        <a mat-list-item routerLink="notification">
+          <span class="mdc-list-item__primary-text">🔔 Notification</span></a
+        >
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="primary1">
+      <button
+        (click)="changeMargin()"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        *ngIf="service.isLoggedinUser"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon class="menuIcon" aria-label="Side nav toggle icon"
+          >menu</mat-icon
+        >
+      </button>
+      <span id="logo1"
+        ><img src="../../../assets/White logo - no background.png" alt="logo1"
+      /></span>
+      <span class="example-spacer"></span>  
+      <div [style.margin-right]="myMargin">
+        <span class="uName" *ngIf="service.isLoggedinUser">
+          <a class="text1">Hello, {{ userdetails.name }}.</a>
+           <img class="profile" [src]="userdetails.profileImg" alt="">
+        </span>
+        <span
+          class="material-icons"
+          matTooltip="Logout"
+          matTooltipPosition="below"
+          *ngIf="service.isLoggedinUser"
+          (click)="logout()"
+          >logout</span
+        >
+      </div>
+      <span
+        class="material-icons"
+        matTooltip="Log in"
+        matTooltipPosition="below"
+        *ngIf="!service.isLoggedinUser"
+        routerLink="login"
+        >login</span
+      >
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

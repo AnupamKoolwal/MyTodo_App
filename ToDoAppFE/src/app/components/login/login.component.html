@@ -1,0 +1,67 @@
+<div class="formbg">
+  <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title class="title">Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Enter Email Id"
+                formControlName="emailId"
+              />
+              <mat-error
+                *ngIf="loginForm.controls['emailId'].hasError('required')"
+              >
+                <strong>Email Id is Required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="loginForm.controls['emailId'].hasError('email')"
+              >
+                <strong> Please Enter Valid Mail ID</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                type="password"
+                matInput
+                placeholder="Enter Password"
+                formControlName="password"
+              />
+              <mat-error
+                *ngIf="loginForm.controls['password'].hasError('required')"
+              >
+                <strong>Password is Required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="loginForm.controls['password'].hasError('minlength')"
+              >
+                <strong> Password length should be 8</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          class="button"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Submit
+        </button>
+        <a mat-raised-button class="button" routerLink="/register">Register</a>
+        <a mat-raised-button class="button" routerLink="/forget"
+          >Forget Password?</a
+        >
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

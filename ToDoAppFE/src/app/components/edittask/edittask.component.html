@@ -1,0 +1,44 @@
+
+<form class="box" [formGroup]="taskForm" (ngSubmit)="editNote()" style="margin-top: 8%;">
+
+  <ng-container *ngFor="let item of formDetails">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input type="text" readonly formControlName="title" name="title" matInput [(ngModel)]="item.title">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description of task</mat-label>
+    <textarea  formControlName="description" name="description" matInput [(ngModel)]="item.description"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Task Priority</mat-label>
+    <mat-select formControlName="priority" name="priority" [(ngModel)]="item.priority">
+      <mat-option value="low">Low </mat-option>
+      <mat-option value="medium">Medium </mat-option>
+      <mat-option value="high">High </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="row3">
+  <div appearance="fill">
+    <mat-label style="color: white;">Task to be Completed</mat-label>
+    <input style="margin-left: 50px;" type="date" class="date" placeholder="Enter Date From Today" formControlName="dueDateTime" required min="{{ todaydates }}" [(ngModel)]="item.dueDateTime"/>
+    <mat-error
+      *ngIf="dueDateTime?.invalid && (dueDateTime.dirty || dueDateTime.touched)">
+      <strong *ngIf="dueDateTime?.errors?.['required']"
+        >This Date is Required
+      </strong>
+      <strong *ngIf="dueDateTime?.errors?.['ErrorData1']"
+        >The Date Cannot be yesterday
+      </strong>
+    </mat-error>
+  </div>
+  <div class="input1">
+  <input id="input" (change)="onFileSelected($event)" type="file" formControlName="imgUrl" name="imgUrl"/>
+      <div class="imgnote"style="margin-top: 10px;">Image size should be less than 100kb </div>
+
+</div>
+</div>
+<button type="submit" [disabled]="taskForm.invalid">Update Task</button>
+</ng-container>
+</form>
+

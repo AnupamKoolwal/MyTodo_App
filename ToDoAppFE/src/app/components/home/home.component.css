@@ -1,0 +1,93 @@
+.sidenav-container {
+  min-height: 100vh;
+  max-width: 100%;
+  /* background-image: url(../../../assets/bg2.jpg); */
+  background-color: whitesmoke;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: rgb(117, 83, 148);
+
+font-family: "Roboto Slab", serif;;
+
+}
+.primary1 {
+  background-color: rgb(89, 57, 119);
+  z-index: 10;
+  position: fixed;
+}
+.material-icons {
+  cursor: pointer;
+}
+.material-icons:hover {
+
+  border-radius: 10px;
+}
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+span {
+  color: white;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+  font-size: 22px;
+}
+
+.menuIcon{
+  color: whitesmoke;
+}
+
+.text1{
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  padding-right: 20px;
+}
+mat-nav-list
+{
+  color: white;
+}
+.mdc-list-item__primary-text {
+  color: white;
+  font-size: 14px;
+  font-family: "Roboto Slab", serif;
+}
+.uName
+{
+  overflow:visible;
+  margin-right: auto;
+}
+#logo1
+{
+
+  height: 70px;
+  padding: 8px;
+}
+#logo1 img
+{
+  background-size: cover;
+  height: 7vh;
+
+}
+
+
+.profile
+{
+  height: 70px;
+  width: 80px;
+  border-radius: 60%;
+  margin: 0 10px;
+
+}

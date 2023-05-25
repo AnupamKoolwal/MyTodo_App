@@ -1,0 +1,68 @@
+<div class="fullForm"   style="padding: 20px;" >
+        <mat-panel-title  class="example-headers-align" style="margin-bottom: 10px; "> Add Task Details </mat-panel-title>
+      <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input type="text" formControlName="title" name="title" matInput />
+
+          <mat-error *ngIf="taskForm.controls['title'].hasError('required')">
+            <strong>Title is required</strong>
+          </mat-error>
+          <mat-error *ngIf="taskForm.controls['title'].hasError('minlength')">
+            <strong>Title length should be 4 Char</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Description of task</mat-label>
+          <textarea formControlName="description" name="description" matInput></textarea>
+
+          <mat-error *ngIf="taskForm.controls['description'].hasError('required')">
+            <strong> Description is required</strong>
+          </mat-error>
+          <mat-error *ngIf="taskForm.controls['description'].hasError('minlength')">
+            <strong>Length should be 50 Char</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Select Task Priority</mat-label>
+          <mat-select formControlName="priority" name="priority">
+            <mat-option value="low">Low </mat-option>
+            <mat-option value="medium">Medium </mat-option>
+            <mat-option value="high">High </mat-option>
+          </mat-select>
+          <mat-error *ngIf="taskForm.controls['priority'].hasError('required')">
+            <strong> Priority is required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div appearance="fill" style="padding-bottom: 5%;">
+          <mat-label class="text1">Task to be Completed</mat-label>
+          <input type="date" class="date" placeholder="Enter Date From Today" formControlName="dueDateTime" required
+            min="{{ todaydates }}" />
+          <mat-error *ngIf="
+              dueDateTime?.invalid && (dueDateTime.dirty || dueDateTime.touched)
+            ">
+            <strong *ngIf="dueDateTime?.errors?.['required']">This Date is Required
+            </strong>
+            <strong *ngIf="dueDateTime?.errors?.['ErrorData1']">The Date Cannot be yesterday
+            </strong>
+          </mat-error>
+        </div>
+
+        <div style="padding-bottom: 5%; padding-left: 10%;" >
+          <input id="input" (change)="onFileSelected($event)" type="file" formControlName="imgUrl" name="imgUrl"
+            class="text1" />
+          <p style="margin-left: 0px" class="text1">
+            Image size should be less than 100kb
+          </p>
+        </div>
+
+        <div >
+          <button type="submit" [disabled]="taskForm.invalid">Add Task</button>
+        </div>
+      </form>
+
+</div>

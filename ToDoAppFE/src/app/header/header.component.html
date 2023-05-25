@@ -1,0 +1,18 @@
+<div class="addtask">
+  <button class="add" mat-raised-button color="primary" (click)="openDialog()">AddTask</button>
+<app-searchbar class="ser"
+  (sendToContainer)="searched($event)"
+  (sendToContainer1)="filtered($event)"
+  (sendToContainer2)="completionStatus($event)"
+></app-searchbar>
+<div *ngIf="showDeleteButton1">
+  <button class="del" mat-raised-button color="primary" (click)="deleteAllTask()">
+    Delete All
+  </button>
+</div>
+</div>
+<app-viewtask [allTask]="allTask"></app-viewtask>
+<div *ngIf="showMessage">
+  <h1>You have No Tasks</h1>
+</div>
+

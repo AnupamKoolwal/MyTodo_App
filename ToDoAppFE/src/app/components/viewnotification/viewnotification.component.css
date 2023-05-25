@@ -1,0 +1,28 @@
+.example-card {
+  max-width: 385px;
+  margin: 10px;
+  padding: 2px;
+  font-family: "Roboto Slab", serif;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 0px;
+  border: 1px solid blueviolet;
+}
+div {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.text {
+  font-family: "Roboto Slab", serif;
+}
+.text1 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.head{
+  background-color: #fff;
+}

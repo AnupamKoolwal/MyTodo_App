@@ -1,0 +1,60 @@
+<div class="div">
+  <mat-card class="example-card" *ngFor="
+      let card of allTask.reverse()
+        | paginate
+          : {
+              itemsPerPage: cardSize,
+              currentPage: page,
+              totalItems: count
+            };
+      let i = index
+    " [ngClass]="{
+    'high-priority': isHighPriority(card),
+    'medium-priority': isMediumPriority(card),
+    'low-priority': isLowPriority(card),
+  }">
+    <mat-card-header class="head">
+      <mat-card-title class="text"> {{ card.title }}</mat-card-title>
+      <mat-card-subtitle class="text text1">
+        Created On:- {{ card.createdDateTime }} | Priority :-
+        {{ card.priority }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="fullForm">
+        <mat-expansion-panel-header>
+          <mat-panel-title> View more... </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr />
+        <mat-card-content class="desc">
+          {{ card.description }}
+        </mat-card-content>
+        <mat-card-content>
+          <div *ngIf="card.imgUrl != ''">
+            <img id="img" [src]="card.imgUrl" height="200px" style="width: 300px" />
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="but">
+            <span class="material-icons" matTooltip="Delete" matTooltipPosition="above"
+              (click)="deleteTaskById(card.taskId)">delete</span>
+          </div>
+        </mat-card-actions>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>
+<div  class="size1" id="pg">
+  <div style="width: 400px">
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onCardDataChange($event)">
+    </pagination-controls>
+  </div>
+  <div class="size1">
+    <a>Tasks per page :- </a>
+    <select (change)="onCardSizeChange($event)">
+      <option *ngFor="let size of cardSizes">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+</div>

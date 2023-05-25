@@ -1,0 +1,30 @@
+
+.addtask{
+  margin-top:130px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 0.5fr 5fr 0.7fr;
+  width: 90%;
+margin-left: 7%;
+}
+
+.head1{
+  display: flex;
+  width: 100%;
+}
+
+h1{
+  text-align: center;
+  color:white;
+}
+button{
+  margin-top: 15px;
+}
+/* .add{
+
+ margin-left: 200px;
+}
+.del{
+  margin-top:15px ;
+  margin-right: 200px;
+ } */
